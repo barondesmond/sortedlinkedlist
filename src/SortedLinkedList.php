@@ -4,14 +4,23 @@ declare(strict_types=1);
 
 namespace App;
 
+use Countable;
+use IteratorAggregate;
+use Traversable;
+
 /**
  * A sorted linked list that accepts either integers or strings,
  * but not both at the same time.
+ *
+ * @implements IteratorAggregate<int, string>
  */
-class SortedLinkedList implements \IteratorAggregate, \Countable
+class SortedLinkedList implements IteratorAggregate, Countable
 {
     private ?Node $head = null;
     private ?string $type = null;
+    /**
+     * @var int<0, max>
+     */
     private int $count = 0;
 
     /**
@@ -42,6 +51,8 @@ class SortedLinkedList implements \IteratorAggregate, \Countable
 
     /**
      * Returns the number of items in the list.
+     *
+     * @return int<0, max>
      */
     public function count(): int
     {
@@ -50,14 +61,19 @@ class SortedLinkedList implements \IteratorAggregate, \Countable
 
     /**
      * Returns an iterator for foreach support.
+     *
+     * @extends Traversable<int, string>
+     * @return Traversable<int|string>
      */
-    public function getIterator(): \Traversable
+    public function getIterator(): Traversable
     {
         $current = $this->head;
         while ($current !== null) {
             yield $current->value;
             $current = $current->next;
         }
+
+        return $current;
     }
 
     /**
