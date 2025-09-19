@@ -20,3 +20,8 @@ $ ./vendor/bin/phpstan analyse src tests --level=max
 
 
 [OK] No errors
+
+$ ./vendor/bin/phpcs src tests
+Time: 219ms; Memory: 6MB
+
+
