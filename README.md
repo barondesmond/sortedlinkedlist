@@ -14,7 +14,7 @@ Sorted Linked List
 
 OK (3 tests, 4 assertions)
 
-./vendor/bin/phpstan analyse src tests --level=max
+$ ./vendor/bin/phpstan analyse src tests --level=max
 3/3 [============================] 100%
 
 

@@ -104,4 +104,3 @@ class SortedLinkedList implements IteratorAggregate, Countable
         }
     }
 }
-
