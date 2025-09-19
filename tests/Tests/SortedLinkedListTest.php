@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+namespace Tests;
+
+use App\Library\SortedLinkedList;
 use PHPUnit\Framework\TestCase;
-use App\SortedLinkedList;
 
 class SortedLinkedListTest extends TestCase
 {
